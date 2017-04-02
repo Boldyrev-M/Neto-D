@@ -15,20 +15,25 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('category');
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('text');
             $table->string('name');
-            $table->dateTime('created');
+            $table->dateTime('created_at');
             $table->string('email');
             $table->string('answer');
-            $table->integer('user_id');
-            $table->dateTime('resolved');
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->dateTime('resolved')->nullable();
             $table->integer('status');
             $table->rememberToken();
             $table->timestamps();
         });
+//        Schema::table('questions', function ($table){
+//            $table->foreign('category_id')->references('category')->on('categories');//->onDelete('cascade');
+//            $table->foreign('user_id')->references('id')->on('users');
+//        });
     }
-
     /**
      * Reverse the migrations.
      *

@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Question;
 use Illuminate\Http\Request;
+use DB;
+use  App\User;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = new User();
+        $ctg = new Category();
+        $quest = new Question();
+        return view('home',['users'=>$user->showAll(),'categories'=>$ctg->TakeAllCat(),
+            'stats'=>$quest->getStats($ctg->TakeAllCat())]);
     }
 }

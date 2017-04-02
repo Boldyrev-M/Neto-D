@@ -9,13 +9,16 @@
     <link rel="stylesheet" href="faq/css/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="faq/css/style.css"> <!-- Resource style -->
     <script src="faq/js/modernizr.js"></script> <!-- Modernizr -->
-    <title>FAQ</title>
+    <title>Вопросы и ответы :: Neto-D</title>
 </head>
 <body>
 <header>
-    <h1>FAQ</h1>
+    <h1>Вопросы и <a href="/home">ответы</a> :: Neto-D <!-- :: <a href="#ask">Задать вопрос</a>--></h1>
+
 </header>
+
 <section class="cd-faq">
+
     <ul class="cd-faq-categories">
         @foreach($categories as $cat)
 
@@ -28,7 +31,7 @@
             <ul id="{{$cat->id}}" class="cd-faq-group">
                 <li class="cd-faq-title"><h2>{{$cat->category}}</h2></li>
                 @foreach($faq as $faqId)
-                    @if ($faqId->category == $cat->id)
+                    @if ($faqId->category_id == $cat->id)
                         <li>
                             <a class="cd-faq-trigger" href="#0">{{$faqId->text}}</a>
                             <div class="cd-faq-content">
@@ -41,6 +44,22 @@
         @endforeach
     </div> <!-- cd-faq-items -->
     <a href="#0" class="cd-close-panel">Close</a>
+
+    <div class="cd-faq-form"> <a name="#ask"><h1>Задать вопрос:</h1></a>
+    {{----}}
+        <form name="Newquestion" action="{{action('QAController@addQuestion')}}" method="POST">
+            <div class="block"><label>Ваше имя:</label><input type="text" name="name" value="Юзер" required></div>
+            <div class="block"><label>Введите e-mail:</label><input type="text" name="email" value="mail@mail.mail" required></div>
+            <div class="block"><label>Выберите категорию вопроса</label><select name="category" required>
+                    @foreach($categories as $cat)
+                        <option value="{{$cat->id}}">{{$cat->category}}</option>
+                    @endforeach
+                </select></div>
+            <div class="block"><label>Текст вопроса:</label><textarea name="text" maxlength="100" autofocus required></textarea></div>
+            <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+            <div class="block"><input type="submit" value="Отправить"></div></form>
+    {{----}}
+    </div>
 </section> <!-- cd-faq -->
 
 @yield('question form')

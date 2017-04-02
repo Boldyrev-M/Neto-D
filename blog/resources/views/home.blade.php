@@ -1,55 +1,105 @@
 @extends('layouts.app')
-<?php
-$users = DB::table('users')->get();
-?>
+
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Админка view Home </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Админка view Home</div>
 
-                <div class="panel-body">
-                    You are logged in!
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h2>Список администраторов</h2>
+                        <?php
+                        echo "USER: " . \Auth::user()->id;
+                        ?>
+                        <table border="1">
+                            <tr>
+                                <th>ID</th>
+                                <th>User name</th>
+                                <th>E-mail</th>
+                            </tr>
+                            @foreach($users as $usr)
+                                <tr>
+                                    <td><a href="/users/change/{{$usr->id}}" title="Изменить">{{$usr->id}} </a></td>
+                                    <td> {{$usr->name}} </td>
+                                    <td>{{$usr->email}}</td>
+                                    <td><a href="/users/delete/{{$usr->id}}">Удалить</a></td>
+                                </tr>
+                            @endforeach
+                        </table>
+                        {{--<a href="/users/create">Создать пользователя</a>--}}
+                        <div class="cd-faq-form">
+                            <h1>Добавить пользователя:</h1>
+                            <form method="POST" action="{{action('UsersController@store')}}">
+                                <div class="block"><label for="login">Имя пользователя:</label>
+                                    <input type="text" name="login" required/><br></div>
+                                    <div class="block"><label for="email">E-mail:</label>
+                                <input type="text" name="email" required/><br></div>
+                                        <div class="block"><label for="password">Пароль:</label>
+                                <input type="password" name="password" required/><br></div>
+                                <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                                <input type="submit" value="Сохранить">
+                            </form>
+                        </div>
 
-<h1>Админка</h1>
-<h2>Администраторы</h2>
-<ul>
-    <li><a href="/adminka/users">Список пользователей</a></li>
-    {{--<li><a href="/adminzone/articles/create">Добавить статью</a></li>--}}
-    <table border="1">
-        <tr><th>NN </th>
-            <th>User name</th>
-            <th>E-mail</th></tr>
-    @foreach($users as $usr)
+                        <h2>Категории</h2>
 
-            <td><a href="#{{$usr->id}}" title="Изменить">{{$usr->id}} </a></td>
-                <td> {{$usr->name}} </td><td>{{$usr->email}}</td>
+                        <table border="1">
+                            <tr>
+                                <th>ID</th>
+                                <th>Категория</th>
+                                <th>Удаление</th>
+                                <th>Всего вопросов</th>
+                                <th>Опубликовано</th>
+                                <th>Без ответов</th>
+                            </tr>
+                            @foreach($categories as $cat)
+                                <tr>
+                                    <td><a href="category/edit/{{$cat->id}}" title="Изменить">{{$cat->id}} </a></td>
+                                    <td> {{$cat->category}} </td>
 
+                                    <td><a href="category/delete/{{$cat->id}}">Удалить</a></td>
+                                    <td>{{$stats[$cat->id]['all']}}</td>
+                                    <td>{{$stats[$cat->id]['published']}}</td>
+                                    <td>{{$stats[$cat->id]['noanswer']}}</td>
+                                </tr>
+                            @endforeach
+                        </table>
 
-<?php //echo "<pre>".print_r($usr,true)."</pre>";
-$glue  = "</td><td>";
-        //$imp = implode($glue,$usr);
-//        echo "<table><tr><td>".$imp."</td></tr></table>"; ?>
-    @endforeach
-    </table>
-</ul>
-<h2>Категории</h2>
-<ul>
-    <li>Все категории</li>
-    <li>Добавить категорию</li>
-</ul>
-<h2>Список вопросов</h2>
-<ul>
-    <li><a href="/adminka/qlist">Список вопросов</a></li>
-    <ul>
-        <h2>Страницы</h2>
-        <ul>
+                        <form method="POST" action="{{action('CategoriesController@store')}}">
+                            Добавить категорию:<br>
+                            <input type="text" name="title"/><br>
+                            <input type="hidden" name="_token" value="{{csrf_token()}}"/>
+                            <input type="submit" value="Сохранить">
+                        </form>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <h2>Список вопросов</h2>
+
+                        <a href="/questions/list">Открыть список вопросов</a>
+                        <a href="/questions/noanswerlist">Открыть список вопросов без ответов</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

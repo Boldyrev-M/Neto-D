@@ -70,6 +70,10 @@ header h1 {
   font-size: 20px;
   font-size: 1.25rem;
 }
+ /*laravel : откл подсветки ссылки в заголовке*/
+header a{
+  color: #ffffff;
+}
 @media only screen and (min-width: 1024px) {
   header {
     height: 240px;
@@ -222,6 +226,23 @@ header h1 {
   -moz-transition: -moz-transform .3s;
   transition: transform .3s;
 }
+.cd-faq-form {
+ /* position: fixed; */
+  height: 100%;
+  width: 90%;
+  top: 0;
+  right: 0;
+  background: #ffffff;
+  padding: 20px;
+  line-height: 15px;
+}
+
+.cd-faq-form h1 {
+  font-size: 20px;
+  font-style: oblique;
+  margin: 15px;
+}
+
 .cd-faq-items.slide-in {
   -webkit-transform: translateZ(0) translateX(0%);
   -moz-transform: translateZ(0) translateX(0%);
@@ -451,3 +472,11 @@ header h1 {
     display: block;
   }
 }
+
+.block label {
+  display: inline-block;
+  width: 200px;
+  text-align: right;
+  margin-top:5px;
+  margin-right: 5px;
+}​
