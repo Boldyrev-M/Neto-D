@@ -66,7 +66,7 @@ class Question extends Model
         $qu->save();
     }
     public function getStats($categ_arr)
-    {// select count(id) from questions where category_id=$categ
+    {   // select count(id) from questions where category_id=$categ
         // select count(id) from questions where category_id=$categ and status = published
         // select count(id) from questions where category_id=$categ and (answer = '' or answer is null)
         foreach($categ_arr as $cat)

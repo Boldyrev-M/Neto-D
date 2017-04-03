@@ -66,6 +66,15 @@
                                 <input type="submit" value="Сохранить">
                             </form>
                         </div>
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
 
                         <h2>Категории</h2>
 
@@ -82,7 +91,6 @@
                                 <tr>
                                     <td><a href="category/edit/{{$cat->id}}" title="Изменить">{{$cat->id}} </a></td>
                                     <td> {{$cat->category}} </td>
-
                                     <td><a href="category/delete/{{$cat->id}}">Удалить</a></td>
                                     <td>{{$stats[$cat->id]['all']}}</td>
                                     <td>{{$stats[$cat->id]['published']}}</td>
