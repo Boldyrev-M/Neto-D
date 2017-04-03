@@ -37,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Question.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Question.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blog/app/Question.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+            <state relative-caret-position="240">
+              <caret line="72" column="9" lean-forward="false" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
               <folding>
                 <element signature="e#23#62#0#PHP" expanded="true" />
               </folding>
@@ -52,8 +52,8 @@
       <file leaf-file-name="2017_03_15_102323_create_questions_table.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blog/database/migrations/2017_03_15_102323_create_questions_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+            <state relative-caret-position="484">
+              <caret line="27" column="34" lean-forward="false" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -81,21 +81,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="questionsList.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="questionsList.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blog/resources/views/questionsList.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="74" column="26" lean-forward="true" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+            <state relative-caret-position="416">
+              <caret line="33" column="38" lean-forward="false" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CategoriesController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog/app/Http/Controllers/CategoriesController.php">
+      <file leaf-file-name="DatabaseSeeder.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/database/seeds/DatabaseSeeder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="746">
-              <caret line="41" column="58" lean-forward="true" selection-start-line="41" selection-start-column="58" selection-end-line="41" selection-end-column="58" />
+            <state relative-caret-position="308">
+              <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="17" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -104,11 +104,9 @@
       <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blog/resources/views/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="98" column="93" lean-forward="false" selection-start-line="98" selection-start-column="93" selection-end-line="98" selection-end-column="93" />
-              <folding>
-                <marker date="1491173724830" expanded="true" signature="4497:4529" ph="..." />
-              </folding>
+            <state relative-caret-position="286">
+              <caret line="43" column="40" lean-forward="false" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -180,11 +178,11 @@
         <option value="$PROJECT_DIR$/blog/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/blog/routes/web.php" />
         <option value="$PROJECT_DIR$/blog/app/Http/Controllers/QuestionsController.php" />
-        <option value="$PROJECT_DIR$/blog/resources/views/home.blade.php" />
-        <option value="$PROJECT_DIR$/blog/app/Question.php" />
-        <option value="$PROJECT_DIR$/blog/database/migrations/2017_03_15_102323_create_questions_table.php" />
         <option value="$PROJECT_DIR$/blog/app/Http/Controllers/QAController.php" />
+        <option value="$PROJECT_DIR$/blog/database/migrations/2017_03_15_102323_create_questions_table.php" />
+        <option value="$PROJECT_DIR$/blog/resources/views/home.blade.php" />
         <option value="$PROJECT_DIR$/blog/resources/views/questionsList.blade.php" />
+        <option value="$PROJECT_DIR$/blog/app/Question.php" />
       </list>
     </option>
   </component>
@@ -501,6 +499,28 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="seeds" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Neto-D" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Neto-D" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blog" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="migrations" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -687,12 +707,12 @@
       <workItem from="1489573311087" duration="10379000" />
       <workItem from="1489672756749" duration="18000" />
       <workItem from="1489672843582" duration="115201000" />
-      <workItem from="1490797180246" duration="78389000" />
+      <workItem from="1490797180246" duration="82584000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="203987000" />
+    <option name="totallyTimeSpent" value="208182000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="23" y="0" width="1885" height="1040" extended-state="0" />
@@ -766,14 +786,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="17" column="45" lean-forward="false" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="40" lean-forward="false" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -1080,28 +1092,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/resources/views/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="98" column="93" lean-forward="false" selection-start-line="98" selection-start-column="93" selection-end-line="98" selection-end-column="93" />
-          <folding>
-            <marker date="1491173724830" expanded="true" signature="4497:4529" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/database/migrations/2017_03_15_102323_create_questions_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -1114,13 +1108,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/app/Question.php">
+    <entry file="file://$PROJECT_DIR$/blog/app/Http/Controllers/QAController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
-          <folding>
-            <element signature="e#23#62#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="-125">
+          <caret line="36" column="133" lean-forward="false" selection-start-line="36" selection-start-column="133" selection-end-line="36" selection-end-column="133" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1132,19 +1124,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/app/Http/Controllers/QAController.php">
+    <entry file="file://$PROJECT_DIR$/blog/database/migrations/2017_03_15_102323_create_questions_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-125">
-          <caret line="36" column="133" lean-forward="false" selection-start-line="36" selection-start-column="133" selection-end-line="36" selection-end-column="133" />
+        <state relative-caret-position="484">
+          <caret line="27" column="34" lean-forward="false" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="43" column="40" lean-forward="false" selection-start-line="43" selection-start-column="40" selection-end-line="43" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/resources/views/questionsList.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="74" column="26" lean-forward="true" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+        <state relative-caret-position="416">
+          <caret line="33" column="38" lean-forward="false" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="17" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/app/Question.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="72" column="9" lean-forward="false" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
+          <folding>
+            <element signature="e#23#62#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

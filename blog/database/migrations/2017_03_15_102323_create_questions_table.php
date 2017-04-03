@@ -21,10 +21,11 @@ class CreateQuestionsTable extends Migration
             $table->string('name');
             $table->dateTime('created_at');
             $table->string('email');
-            $table->string('answer');
+            $table->string('answer')->nullable();
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->dateTime('resolved')->nullable();
+            $table->dateTime('deleted_at');
             $table->integer('status');
             $table->rememberToken();
             $table->timestamps();

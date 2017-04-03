@@ -30,10 +30,8 @@ DONE Просматривать вопросы в каждой теме. По к
                         <h2>{{$title}}</h2>
 
                         @foreach($categories as $cat)
-                            <table border="0">
-                                <tr>
-                                    <td>{{$cat->id}})</td>
-                                    <td> {{$cat->category}} </td>
+
+                                   <h3> {{$cat->id}}) {{$cat->category}} </h3>
 
                                     <table border="1">
                                         <tr>
@@ -70,7 +68,7 @@ DONE Просматривать вопросы в каждой теме. По к
                                     </table>
                                     <td><a href="/category/delete/{{$cat->id}}">Удалить</a></td>
                                 </tr>
-                            </table>
+
                         @endforeach
                     </div>
                 </div>
