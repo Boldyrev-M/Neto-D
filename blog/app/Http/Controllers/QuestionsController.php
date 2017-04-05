@@ -10,10 +10,10 @@ class QuestionsController extends Controller
     //
     protected $table = 'questions';
 
-    public function delete($id)
+    public function deleteQuestion($id)
     {
         $qu = new Question();
-        $qu->remove($id);
+        $qu->removeQuestion($id);
         return back();
     }
 

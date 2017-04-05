@@ -29,15 +29,17 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
     public function showAll()
     {
         return $this::all();
     }
-    public function remove($whom)
+
+    public function removeUser($whom)
     {
-        $who =  Auth::user()->id;
+        $who = Auth::user()->id;
         if ($who != $whom) {
-            DB::table($this->table)->where('id','=',$whom)->delete();
+            DB::table($this->table)->where('id', '=', $whom)->delete();
         }
         return back();
     }
@@ -47,17 +49,17 @@ class User extends Authenticatable
         return $this->find($id);
     }
 
-    public function updateUser($id,$login,$email,$password='')
+    public function updateUser($id, $login, $email, $password = '')
     {
-        $u = $this->find($id);
-        $u->name = $login;
-        $u->email = $email;
+        $userUpd = $this->find($id);
+        $userUpd->name = $login;
+        $userUpd->email = $email;
         if ($password) {
-            $u->password = bcrypt($password);
+            $userUpd->password = bcrypt($password);
         }
-        $u->remember_token = null;
-        $u->updated_at = date('Y-m-d H:i:s');
-        $u->save();
+        $userUpd->remember_token = null;
+        $userUpd->updated_at = date('Y-m-d H:i:s');
+        $userUpd->save();
     }
 
 }

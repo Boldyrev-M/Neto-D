@@ -28,9 +28,9 @@ class HomeController extends Controller
     public function index()
     {
         $user = new User();
-        $ctg = new Category();
-        $quest = new Question();
-        return view('home',['users'=>$user->showAll(),'categories'=>$ctg->TakeAllCat(),
-            'stats'=>$quest->getStats($ctg->TakeAllCat())]);
+        $category = new Category();
+        $question = new Question();
+        return view('home',['users'=>$user->showAll(),'categories'=>$category->TakeAllCat(),
+            'stats'=>$question->getStats($category->TakeAllCat())]);
     }
 }

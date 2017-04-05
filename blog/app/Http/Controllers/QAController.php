@@ -12,71 +12,69 @@ use Illuminate\Support\Facades\Input;
 
 class QAController extends Controller
 {
-    //
-    public $categories;
-    public $questions;
-    public $status;
-
     public function showAll()
     {
-        $this->categories = new Category();
-        $this->questions = new Question();
-        $this->status = new Status();
-
-        return view('questionsList', ['categories' => $this->categories->TakeAllCat(),
-            'questions' => $this->questions->TakeAllQs(), 'stat' => $this->status->TakeAllStat(),'title'=>'Список вопросов по категориям']);
+        $categories = new Category();
+        $questions = new Question();
+        $status = new Status();
+        return view('questionsList',
+            ['categories' => $categories->TakeAllCat(),
+                'questions' => $questions->TakeAllQs(),
+                'stat' => $status->TakeAllStat(),
+                'title' => 'Список вопросов по категориям']);
     }
 
-    public function showAllNoAnswer()
+    public function showNoAnswered()
     {
-        $this->categories = new Category();
-        $this->questions = new Question();
-        $this->status = new Status();
+        $categories = new Category();
+        $questions = new Question();
+        $status = new Status();
 
-        return view('questionsList', ['categories' => $this->categories->TakeAllCat(),
-            'questions' => $this->questions->noAnswer(), 'stat' => $this->status->TakeAllStat(),'title'=>'Список вопросов без ответов']);
+        return view('questionsList', ['categories' => $categories->TakeAllCat(),
+            'questions' => $questions->TakeNoAnswer(), 'stat' => $status->TakeAllStat(), 'title' => 'Список вопросов без ответов']);
     }
 
     public function showPublished()
     {
-        $this->categories = new Category();
-        $this->questions = new Question();
+        $categories = new Category();
+        $questions = new Question();
 
-        return view('FAQ/faq', ['categories' => $this->categories->TakeAllCat()],
-            ['faq' => $this->questions->TakePublished()]);
+        return view('FAQ/faq', ['categories' => $categories->TakeAllCat()],
+            ['faq' => $questions->TakePublished()]);
     }
 
     /**
      * @return mixed
      */
-    public function getCategories()
-    {
-        return $this->categories;
-    }
+//    public function getCategories()
+//    {
+//        $categories = new Category();
+//        return $categories->TakeAllCat();
+//    }
 
     /**
      * @return mixed
      */
-    public function getQuestions()
-    {
-        return $this->questions;
-    }
+//    public function getQuestions()
+//    {
+//        return $this->questions;
+//    }
 
     public function addQuestion()
     {
         $questions = new Question();
         $data = Input::all();
-        $questions->add($data);
+        $questions->addQuestion($data);
         return back();
     }
 
     public function change($id)
     {
         $question = new Question();
-        $this->categories = new Category();
-        $this->status = new Status();
+        $categories = new Category();
+        $status = new Status();
 
         $data = $question->getQuestion($id);
-        return view('changequestion',['question'=>$data, 'categories' => $this->categories->TakeAllCat(), 'status'=>$this->status->TakeAllStat()]);
+        return view('changequestion', ['question' => $data, 'categories' => $categories->TakeAllCat(), 'status' => $status->TakeAllStat()]);
     }
 }

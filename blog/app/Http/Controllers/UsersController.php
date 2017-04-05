@@ -18,7 +18,6 @@ class UsersController extends Controller
             'email' => 'required|unique:users,email',//.\Auth::user()->id,
             'password' => 'required|min:8|alpha_num'
         ]);
-
         $user->create([
             'name' => $request->get('login'),
             'email' => $request->get('email'),
@@ -29,13 +28,18 @@ class UsersController extends Controller
 
     public function change($id)
     {
-       $u = new User();
-       return view('changeuser',['data' => $u->getUser($id)]);
+        $u = new User();
+        return view('changeuser', ['data' => $u->getUser($id)]);
     }
 
-    public function updateUser(Request $request)
+    public function update(Request $request)
     {
         $user = new User();
+//        $this->validate($request, [
+//            'login' => 'required|unique:users,name|max:20|alpha_dash',//...ash' . $request->get('id'),
+//            'email' => 'required|unique:users,email',//...ail,' . $request->get('id'),
+//            'password' => 'required|min:8|alpha_num'
+//        ]);
         $user->updateUser($request->get('id'),
             $request->get('login'),
             $request->get('email'),

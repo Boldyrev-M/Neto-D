@@ -12,20 +12,15 @@
 */
 Route::get('/','QAController@showPublished');
 
-//Route::get('/adminka', function () {
-//    return view('adminka');
-//});
 Route::get('/questions/list',['middleware'=>'auth','uses'=>'QAController@showAll']);
-Route::get('/questions/noanswerlist',['middleware'=>'auth','uses'=>'QAController@showAllNoAnswer']);
+Route::get('/questions/noanswerlist',['middleware'=>'auth','uses'=>'QAController@showNoAnswered']);
 Route::get('/questions/change/{id}',['middleware'=>'auth','uses'=>'QAController@change']);
 Route::get('/question/delete/{id}',['middleware'=>'auth','uses'=>'QuestionsController@delete']);
-
-
-//Route::get('auth/login', 'Auth\AuthController@getLogin');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/register', 'HomeController@index');// чтоб не было самовольной регистрации
 
 Route::post('updateCatName',['middleware'=>'auth','uses'=>'CategoriesController@updateCatName','as'=>'updateCatName']); //http://stackoverflow.com/questions/36598151/action-coursecontrollerpublish-not-defined-error-while-that-is-defined
 Route::resource('Categories','CategoriesController');
@@ -39,4 +34,4 @@ Route::get('/category/edit/{id}',['middleware'=>'auth','uses'=>'CategoriesContro
 Route::get('/users/delete/{id}',['middleware'=>'auth','uses'=>'\App\User@remove']);
 Route::post('/users/create',['middleware'=>'auth','uses'=>'UsersController@store']);
 Route::get('/users/change/{id}',['middleware'=>'auth','uses'=>'UsersController@change']);
-Route::post('updateUser',['middleware'=>'auth','uses'=>'UsersController@updateUser']);
+Route::post('updateUser',['middleware'=>'auth','uses'=>'UsersController@update']);

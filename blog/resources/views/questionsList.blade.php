@@ -17,7 +17,10 @@ DONE Просматривать вопросы в каждой теме. По к
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">Список вопросов</div>
-                    <a href="/home">---> Открыть список админов и категорий</a>
+                    <a href="/home">---> Список админов и категорий</a><br>
+                    <a href="/questions/list">---> Полный список вопросов</a><br>
+                    <a href="/questions/noanswerlist">---> Список вопросов без ответов</a>
+
                 </div>
             </div>
         </div>
@@ -31,43 +34,43 @@ DONE Просматривать вопросы в каждой теме. По к
 
                         @foreach($categories as $cat)
 
-                                   <h3> {{$cat->id}}) {{$cat->category}} </h3>
+                            <h3> {{$cat->id}}) {{$cat->category}} </h3>
 
-                                    <table border="1">
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Текст вопроса</th>
-                                            <th>Кто добавил</th>
-                                            <th>Когда добавил</th>
-                                            <th>E-mail:</th>
-                                            <th>Статус</th>
-                                            <th>Ответ</th>
-                                            <th>Показать</th>
-                                        </tr>
-                                        @foreach($questions as $vopr)
-                                            @if ( ($vopr->category_id) ==  $cat->id )
-                                                <tr>
-                                                    <td><a href="change/{{$vopr->id}}"
-                                                           title="Изменить">{{$vopr->id}} </a>
-                                                    </td>
-                                                    <td> {{$vopr->text}} </td>
-                                                    <td> {{$vopr->name}} </td>
-                                                    <td> {{$vopr->created_at}} </td>
-                                                    <td> {{$vopr->email}} </td>
-                                                    @foreach($stat as $currentstat)
-                                                        @if ($vopr->status == $currentstat->id)
-                                                            <th>{{$currentstat->status}}</th>
-                                                        @endif
-                                                    @endforeach
-                                                    <th>{{$vopr->answer}}</th>
-
-                                                    <td><a href="question/delete/{{$vopr->id}}">Удалить</a></td>
-                                                </tr>
-                                            @endif {{--только вопросы для этой категории--}}
-                                        @endforeach {{--список вопросов по категории--}}
-                                    </table>
-                                    <td><a href="/category/delete/{{$cat->id}}">Удалить</a></td>
+                            <table border="1">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Текст вопроса</th>
+                                    <th>Кто добавил</th>
+                                    <th>Когда добавил</th>
+                                    <th>E-mail:</th>
+                                    <th>Статус</th>
+                                    <th>Ответ</th>
+                                    <th>Показать</th>
                                 </tr>
+                                @foreach($questions as $vopr)
+                                    @if ( ($vopr->category_id) ==  $cat->id )
+                                        <tr>
+                                            <td><a href="change/{{$vopr->id}}"
+                                                   title="Изменить">{{$vopr->id}} </a>
+                                            </td>
+                                            <td> {{$vopr->text}} </td>
+                                            <td> {{$vopr->name}} </td>
+                                            <td> {{$vopr->created_at}} </td>
+                                            <td> {{$vopr->email}} </td>
+                                            @foreach($stat as $currentstat)
+                                                @if ($vopr->status == $currentstat->id)
+                                                    <th>{{$currentstat->status}}</th>
+                                                @endif
+                                            @endforeach
+                                            <th>{{$vopr->answer}}</th>
+
+                                            <td><a href="question/delete/{{$vopr->id}}">Удалить</a></td>
+                                        </tr>
+                                    @endif {{--только вопросы для этой категории--}}
+                                @endforeach {{--список вопросов по категории--}}
+                            </table>
+                            <td><a href="/category/delete/{{$cat->id}}">Удалить</a></td>
+                            </tr>
 
                         @endforeach
                     </div>

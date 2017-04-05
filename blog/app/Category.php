@@ -13,31 +13,26 @@ class Category extends Model
         // получаем массив записей из таблицы
         return $this::all();
     }
-    public function add($catname)
+    public function add($categoryName)
     {
         DB::table($this->table)->insert(
-            ['category' => $catname]
+            ['category' => $categoryName]
         );
     }
-    public function remove($catid)
+    public function remove($categoryId)
     {
-        DB::table($this->table)->where('id','=',$catid)->delete();
+        DB::table($this->table)->where('id','=',$categoryId)->delete();
     }
-    public function getName($id)
+    public function getName($categoryId)
     {
-        $cat = Category::find($id);
-        return $cat->category;
-        //DB::table($this->table)->where('id','=',$id)->pluck('category');//нигадицца, возвращает юникод
+        $category = Category::find($categoryId);
+        return $category->category;
     }
-    public function updateCat($id,$catname)
+    public function updateCat($categoryId,$categoryName)
     {
-//        DB::table($this->table)
-//            ->where('id','=',$id)
-//            ->update(['category' => $catname]);
-//
-        $ca = Category::find($id);
-        $ca->category = $catname;
-        $ca->updated_at = date('Y-m-d H:i:s');
-        $ca->save();
+        $category = Category::find($categoryId);
+        $category->category = $categoryName;
+        $category->updated_at = date('Y-m-d H:i:s');
+        $category->save();
     }
 }

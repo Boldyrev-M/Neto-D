@@ -18,7 +18,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="block">
-                        <form method="POST" action="{{action('UsersController@updateUser')}}"/>
+                        <form method="POST" action="{{action('UsersController@update')}}"/>
                         <label for="login">Логин:</label>
                         <input type="text" name="login" value="{{$data->name}}" /><br>
                         <label for="email">Email:</label>
