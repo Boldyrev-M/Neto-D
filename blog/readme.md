@@ -1,40 +1,67 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# README
+# Инструкция по установке
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Технические требования
 
-## About Laravel
+Для работы приложения на вашем компьютере (сервере) должны быть установлены:
+- PHP (версия не ниже 5.6.13)
+- MySQL 
+- сервер Apache
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+## Установка приложения 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Рабочая версия файлов приложения находится по адресу: 
+https://github.com/Boldyrev-M/Neto-D/tree/master/blog
+Для установки приложения скопируйте исходные файлы, сохраняя структуру каталогов.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+## Подготовка базы данных
 
-## Learning Laravel
+Создайте пустую базу данных для работы приложения.
+Импортируйте структуру таблиц и начальные данные из файла faq.sql
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+## Конфигурационные файлы
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+###.htaccess 
 
-## Contributing
+Измените настройки в соответствии с конфигурацией вашего сервера.
+Данный файл должен обеспечивать переадресацию запросов к сайту на файл public/index.php.
+Пример:
+	Options -Indexes
+	RewriteEngine On
+	RewriteRule ^(.*)$ public/$1 [L,QSA]
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+### /config/database.php 
 
-## Security Vulnerabilities
+В данном файле установите параметры доступа к вашей базе данных.
+Пример:	'mysql' => [
+		'driver' => 'mysql',
+		'host' => env('DB_HOST', 'localhost'),
+		'port' => env('DB_PORT', '8889'),
+		'database' => env('DB_DATABASE', 'your_db_name'),
+		'username' => env('DB_USERNAME', 'root'),
+		'password' => env('DB_PASSWORD', 'root'),
+		'charset' => 'utf8',
+		'collation' => 'utf8_general_ci',
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+### .env
 
-## License
+В файле .env в корневом каталоге установите параметры доступа к вашей базе данных и APP_URL - адрес вашего приложения (сайт).
+Пример:
+APP_URL=http://your_laravel.ru
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=your_db_name
+DB_USERNAME=db_user_name
+DB_PASSWORD=db_password
+
+## Начало работы
+
+Зайдите на сайт и убедитесь, что открывается начальная страница сайта.
+Инструкция по работе с приложением находится по адресу:
+https://docs.google.com/document/d/1RKDsSQu4TWLyZmFEv9mDS5XuKoKlvDUjrL8KSxTejpI/edit?usp=sharing
+Начальные данные для работы с интерфейсом администратора:
+E-mail: admin@admin
+Password: admin
+

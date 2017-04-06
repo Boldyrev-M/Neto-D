@@ -1,9 +1,10 @@
 -- Adminer 4.2.5 MySQL dump
 
 SET NAMES utf8;
-SET time_zone = '+00:00';
+SET time_zone = '+04:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
 
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories` (
@@ -15,15 +16,8 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `category`, `updated_at`) VALUES
 (1,	'Категория один',	'2017-04-01 17:10:26'),
-(3,	'КатТри',	NULL),
-(4,	'Разное',	NULL);
-
-DROP TABLE IF EXISTS `dirtywords`;
-CREATE TABLE `dirtywords` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `word` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+(2,	'Категория два',	NULL),
+(3,	'Разное',	NULL);
 
 
 DROP TABLE IF EXISTS `migrations`;
@@ -93,6 +87,6 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1,	'admin',	'maxikb@mail.ru',	'$2y$10$qoOTM52r8ETTJi9l/GEJMei6iAEQn5oj1ZpQ2u3PJBRmj8gK5i59W',	'pXH16AV943v6ltd83iYBYLwi2Hes7odHFGYiHnwgMbBau6FXapH4uLHq6gGR',	NULL,	NULL);
+(1,	'admin',	'admin@admin',	'$2y$10$qoOTM52r8ETTJi9l/GEJMei6iAEQn5oj1ZpQ2u3PJBRmj8gK5i59W',	'pXH16AV943v6ltd83iYBYLwi2Hes7odHFGYiHnwgMbBau6FXapH4uLHq6gGR',	NULL,	NULL);
 
 -- 2017-04-02 13:21:27
