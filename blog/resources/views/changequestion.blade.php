@@ -28,8 +28,10 @@
                                 >{{$cat->category}}</option>
                         @endforeach
                         </select><br>
-                        <label for="text">Вопрос:</label>
-                        <textarea name="text">{{$question->text}}</textarea><br>
+                            <label for="text">Вопрос:</label>
+                            <textarea name="text">{{$question->text}}</textarea><br>
+                            <label for="text">Автор:</label>
+                            <input type="text" name="name" value="{{$question->name}}" /><br>
                         <label for="answer">Ответ:</label>
                         <textarea name="answer">{{$question->answer}}</textarea><br>
                         <label for="status">Статус</label><select name="status">

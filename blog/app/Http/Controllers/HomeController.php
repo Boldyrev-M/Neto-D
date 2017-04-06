@@ -26,7 +26,8 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   // отображение представления для авторизованного пользователя
+        // со списком пользователей и статистикой по вопросам
         $user = new User();
         $category = new Category();
         $question = new Question();

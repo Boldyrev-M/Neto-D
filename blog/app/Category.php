@@ -35,4 +35,14 @@ class Category extends Model
         $category->updated_at = date('Y-m-d H:i:s');
         $category->save();
     }
+    public function TakeNotEmpty()
+    {   // выбор категорий, для которых есть опубликованные записи в таблице вопросов
+        // select distinct categories.* from categories join questions on categories.id = questions.category_id where questions.status=3
+
+        return DB::table($this->table)
+            ->join('questions', $this->table.'.id', '=', 'questions.category_id')
+            ->where('questions.status','=',3)
+            ->select($this->table.'.*')->distinct()->get();
+
+    }
 }

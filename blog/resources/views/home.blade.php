@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Админка view Home</div>
+                    <div class="panel-heading">Админка</div>
 
                 </div>
             </div>
@@ -34,7 +34,7 @@
                     <div class="panel-body">
                         <h2>Список администраторов</h2>
                         <?php
-                        echo "Текуший пользователь: " . \Auth::user()->id;
+                        echo "Текущий пользователь: " . \Auth::user()->id;
                         ?>
                         <table border="1">
                             <tr>
@@ -48,7 +48,11 @@
                                     <td><a href="/users/change/{{$usr->id}}" title="Изменить">{{$usr->id}} </a></td>
                                     <td> {{$usr->name}} </td>
                                     <td>{{$usr->email}}</td>
+                                    @if (\Auth::user()->id !== $usr->id)
                                     <td><a href="/users/delete/{{$usr->id}}">Удалить</a></td>
+                                        @else
+                                    <td>&nbsp;</td>
+                                        @endif
                                 </tr>
                             @endforeach
                         </table>

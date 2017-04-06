@@ -22,6 +22,7 @@ class QuestionsController extends Controller
         $question = new Question();
         $question->updateQuestion($request->get('id'),
             $request->get('text'),
+            $request->get('name'),
             $request->get('answer'),
             $request->get('status'),
             $request->get('category'));

@@ -20,14 +20,15 @@
 <section class="cd-faq">
 
     <ul class="cd-faq-categories">
-        @foreach($categories as $cat)
+        @foreach($categoriesNotEmpty as $cat)
 
             <li><a href="#{{$cat->id}}">{{$cat->category}}</a></li>
+
         @endforeach
     </ul> <!-- cd-faq-categories -->
 
     <div class="cd-faq-items">
-        @foreach($categories as $cat)
+        @foreach($categoriesNotEmpty as $cat)
             <ul id="{{$cat->id}}" class="cd-faq-group">
                 <li class="cd-faq-title"><h2>{{$cat->category}}</h2></li>
                 @foreach($faq as $faqId)
@@ -48,8 +49,8 @@
     <div class="cd-faq-form"> <a name="#ask"><h1>Задать вопрос:</h1></a>
     {{----}}
         <form name="Newquestion" action="{{action('QAController@addQuestion')}}" method="POST">
-            <div class="block"><label>Ваше имя:</label><input type="text" name="name" value="Юзер" required></div>
-            <div class="block"><label>Введите e-mail:</label><input type="text" name="email" value="mail@mail.mail" required></div>
+            <div class="block"><label>Ваше имя:</label><input type="text" name="name" required></div>
+            <div class="block"><label>Введите e-mail:</label><input type="text" name="email" required></div>
             <div class="block"><label>Выберите категорию вопроса</label><select name="category" required>
                     @foreach($categories as $cat)
                         <option value="{{$cat->id}}">{{$cat->category}}</option>

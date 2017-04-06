@@ -63,10 +63,11 @@ class Question extends Model
         return $this->find($id);
     }
 
-    public function updateQuestion($id, $text, $answer, $status, $category)
+    public function updateQuestion($id, $text, $name, $answer, $status, $category)
     {
         $qu = $this->find($id);
         $qu->text = $text;
+        $qu->name = $name;
         $qu->answer = $answer;
         $qu->status = $status;
         $qu->category_id = $category;

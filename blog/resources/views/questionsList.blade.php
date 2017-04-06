@@ -69,7 +69,7 @@ DONE Просматривать вопросы в каждой теме. По к
                                     @endif {{--только вопросы для этой категории--}}
                                 @endforeach {{--список вопросов по категории--}}
                             </table>
-                            <td><a href="/category/delete/{{$cat->id}}">Удалить</a></td>
+                            <td><a href="/category/delete/{{$cat->id}}">Удалить категорию</a></td>
                             </tr>
 
                         @endforeach

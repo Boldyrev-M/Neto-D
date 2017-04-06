@@ -11,9 +11,9 @@ use DB;
 use Illuminate\Support\Facades\Input;
 
 class QAController extends Controller
-{
+{ // обработчики главной страницы админки
     public function showAll()
-    {
+    { // вызов отображения списка вопросов
         $categories = new Category();
         $questions = new Question();
         $status = new Status();
@@ -25,43 +25,25 @@ class QAController extends Controller
     }
 
     public function showNoAnswered()
-    {
+    { // вызов отображения списка вопросов _без ответов_
         $categories = new Category();
         $questions = new Question();
         $status = new Status();
-
         return view('questionsList', ['categories' => $categories->TakeAllCat(),
             'questions' => $questions->TakeNoAnswer(), 'stat' => $status->TakeAllStat(), 'title' => 'Список вопросов без ответов']);
     }
 
     public function showPublished()
-    {
+    { // вызов основной страницы со списком разрешенных вопросов
         $categories = new Category();
         $questions = new Question();
-
-        return view('FAQ/faq', ['categories' => $categories->TakeAllCat()],
-            ['faq' => $questions->TakePublished()]);
+        return view('FAQ/faq', ['categories' => $categories->TakeAllCat(),
+            'faq' => $questions->TakePublished(),
+            'categoriesNotEmpty'=>$categories->TakeNotEmpty()]);
     }
 
-    /**
-     * @return mixed
-     */
-//    public function getCategories()
-//    {
-//        $categories = new Category();
-//        return $categories->TakeAllCat();
-//    }
-
-    /**
-     * @return mixed
-     */
-//    public function getQuestions()
-//    {
-//        return $this->questions;
-//    }
-
     public function addQuestion()
-    {
+    {   // сохранение нового вопроса при добавлении на главной странице
         $questions = new Question();
         $data = Input::all();
         $questions->addQuestion($data);
@@ -69,11 +51,10 @@ class QAController extends Controller
     }
 
     public function change($id)
-    {
+    {   // вызов представления с формой для изменения свойств вопроса
         $question = new Question();
         $categories = new Category();
         $status = new Status();
-
         $data = $question->getQuestion($id);
         return view('changequestion', ['question' => $data, 'categories' => $categories->TakeAllCat(), 'status' => $status->TakeAllStat()]);
     }
